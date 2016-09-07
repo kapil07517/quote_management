@@ -6,6 +6,10 @@ gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 gem 'devise'
+gem 'paperclip'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'commentable', path: "~/projects/commentable"
 gem 'bootstrap-sass', '~> 3.3.1'
 
 gem 'autoprefixer-rails'
@@ -39,6 +43,10 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+end
+
+group :test do
+	gem 'rails-controller-testing'
 end
 
 group :development do

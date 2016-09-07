@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804091916) do
+ActiveRecord::Schema.define(version: 20160907060206) do
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "commentable_id"
+    t.integer  "commentor_id"
+    t.text     "comment",          limit: 65535
+    t.string   "commentable_type"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -26,12 +35,22 @@ ActiveRecord::Schema.define(version: 20160804091916) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.integer  "failed_attempts",        default: 0,  null: false
     t.string   "name",                                             comment: "combination of first and last name"
     t.string   "gender"
     t.date     "date_of_birth"
     t.string   "timezone",                                         comment: "time based on user specific"
     t.string   "phone_number"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
+    t.string   "oauth_secret"
+    t.datetime "oauth_expires_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

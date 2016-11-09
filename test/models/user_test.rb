@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
   	assert_equal "is invalid", user.errors[:email].first
   end
 
-  test "failed to create user with mismatch the passwor and password_confirmation" do
+  test "failed to create user with mismatch the password and password_confirmation" do
   	user = User.new(email: "tester@gmail.com", password: "password", password_confirmation: "password2")
   	user.save
   	assert_equal "doesn't match Password", user.errors[:password_confirmation].first

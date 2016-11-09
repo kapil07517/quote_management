@@ -7,7 +7,7 @@ class UsersControllerTest < ActionController::TestCase
   test "renders show" do
   	user = users(:user_1)
   	sign_in user
-  	get :show, params: { id: user, format: :html }, session: { user_id: user }
+  	get :show, params: { id: user }
   	assert_response :success
   	assert_template :show
   end

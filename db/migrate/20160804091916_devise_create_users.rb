@@ -36,7 +36,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.date :date_of_birth
       t.string :timezone, comment: "time based on user specific"
       t.string :phone_number
-      t.attachment :avatar
+      t.string :landline_no
+      t.text :about_me
+      t.string :weblink_type
+      t.string :web_url
       t.string :provider
       t.string :uid
       t.string :oauth_token
